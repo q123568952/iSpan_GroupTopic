@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+<link rel="icon" href="./img/logo.png">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+	<title>DropCat</title>
+	<link rel="stylesheet" href="./css/styleLogin.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<div class="container-fluid" id="login">
+		<div class="row" id="loginTop">
+			<div class="col-1" id="leftCover"></div>
+			<!-- logo & slogan -->
+			<div class="col-7" id="logoBlock">
+				<!-- <div class="row align-items-center" id="logoArea">
+
+                </div> -->
+
+				<div class="col-3" id="logo">
+					<img src="./img/logo.png">
+				</div>
+				<div class="col-9" id="webName">
+					<h1>DropCat</h1>
+				</div>
+
+				<div class="row">
+					<div id="slogan">
+						<span>-Every contact leaves a trace-</span>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="col-1"></div> -->
+
+			<!-- 登入區 -->
+			<!-- <div class="col-1"></div> -->
+			<div class="col-4" id="loginBar">
+				<div class="row" id="loginInput">
+					<!-- 輸入資料 -->
+					<!--action="/login" method="post"-->
+					<form action="#" role="form" method="post" class="needs-validation d-flex flex-column" novalidate>
+						<h1 class="d-flex justify-content-center">Register</h1>
+						<div class="form-group mb-2">
+							<input id="userAccount" required type="text" name="userAccount" class="form-control"
+								placeholder="用戶帳號" aria-label="userAccount">
+
+						</div>
+						<div class="form-group mb-2">
+							<input id="username" required type="text" name="account" class="form-control"
+								placeholder="用戶名稱" aria-label="Username">
+
+						</div>
+						<div class="form-group mb-2">
+							<input id="password" type="password" name="password" class="form-control" placeholder="密碼"
+								aria-label="">
+						</div>
+						<div class="form-group mb-2">
+							<input id="doublueCheckPassword" type="password" class="form-control" placeholder="確認密碼"
+								aria-label="">
+						</div>
+						<div class="form-group mb-2">
+							<input id="phone" required type="tel" class="form-control" placeholder="手機" aria-label="">
+						</div>
+						<div class="form-group mb-2">
+							<input id="email" required type="email" class="form-control" placeholder="電子郵件"
+								aria-label="">
+						</div>
+
+
+						<div class="form-group col-12">
+							<div class="form-check">
+								<input required type="checkbox" class="form-check-input" value="" id="flexCheckDefault">
+								<label for="flexCheckDefault" class="form-check-label text-wrap"
+									style="font-size: 0.9375rem;">
+									同意我們的服務條款 、《 隱私政策 》和《 Cookie政策 》
+								</label>
+							</div>
+
+						</div>
+						<div class="form-group col-12">
+							<div class="form-check">
+								<input required type="checkbox" class="form-check-input" value=""
+									id="flexCheckDefault2">
+								<label for="flexCheckDefault2" class="form-check-label text-wrap"
+									style="font-size: 0.9375rem;">
+									同意我們蒐集用戶的註冊資料，我們不會向任何人透漏個人資料
+								</label>
+							</div>
+						</div>
+
+
+
+						<!-- <br><br> -->
+						<div class="col-auto text-center">
+							<!-- <button id="registerButton" type="button" class="btn btn-primary mb-3 " style="font-size: 1.875rem;">註冊</button> -->
+							<button id="registerButton" onclick="return false;" type="button"
+								class="btn btn-primary">註冊</button>
+						</div>
+						<div class="text-center fw-bold text-danger " id="registerAlert">
+							<!-- Please provide a valid city. -->
+						</div>
+						<!-- <div style="font-size: 1.5625rem;" class="text-center">
+							你已經有帳號了嗎?
+							<br>
+							<a href="./login">登入</a>
+						</div> -->
+					</form>
+					<div th:if="${loginError}" class="error-message">
+						<p th:text="${loginError}" style="color: red;"></p>
+					</div>
+					<!-- <div id="errorMsg"></div> -->
+
+					<!-- 註冊帳號提醒 -->
+					<div id="registerReminder" class="d-flex justify-content-center">
+						<span>已經有帳號了嗎？</span>
+						<span><a href="/login">登入</a></span>
+						<span>帳號</span>
+					</div>
+
+					<!-- Footer -->
+					<div id="loginFooter">
+						<a href="">關於我們</a>
+						<a href="">使用說明</a>
+						<a href="">隱私條款</a>
+					</div>
+
+				</div>
+
+				<!-- 分隔線
+                <div class="splitDown"></div> -->
+			</div>
+			<!-- <div class="col-1"></div> -->
+		</div>
+		<!-- footer -->
+		<!-- <div id="loginFooter">
+            <a href="">關於我們</a>
+            <a href="">使用說明</a>
+            <a href="">隱私條款</a>
+        </div> -->
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.7.1.js"
+		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
+
+	<script src="./js/register.js"></script>
+</body>
+
+</html>

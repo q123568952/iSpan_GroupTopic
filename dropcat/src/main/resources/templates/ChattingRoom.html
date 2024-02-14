@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+<link rel="icon" href="./img/logo.png">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+		crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	</link>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<script th:inline="javascript">
+		let userID = [[${userID}]];
+		let userAccount = [[${userAccount}]];
+		let username = [[${username}]];
+		let followingUserID = [[${followingUserID}]]
+	</script>
+	<link href="favicon.ico" rel="#">
+	</link>
+	<script src="https://rawgit.com/leizongmin/js-xss/master/dist/xss.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="./css/styleTemplate.css">
+	<link rel="stylesheet" href="./css/ChattingRoom.css">
+	<title>Chatting Room</title>
+</head>
+
+<body>
+	<div id="FixedLeft">
+		<!-- 這是左邊的BAR，刪掉你就沒有左邊的BAR了 -->
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Side bar -->
+			<section id="leftBar" class="col-2">
+				<!-- 這裡面的東西通常看不到 -->
+				<!-- FixedLeft 佔住的空間  -->
+			</section>
+			<!-- 聊天室名單區 -->
+			<div id="middleBar">
+				<section class="col-3" id="memberArea">
+					<!-- 聊天室標題 -->
+					<div id="chattingRoomHeadContainer">
+						<p>訊息</p>
+					</div>
+					<!-- 聊天名單區 -->
+					<div id="chattingMemberArea">
+						<!-- 個別聊天名單 -->
+						<div class="row" id="chattingMember">
+
+						</div>
+					</div>
+				</section>
+				<!-- 聊天區 -->
+				<section class="col-9 p-0" id="chattingContentArea">
+					<!-- 聊天內容標題區 -->
+					<div id="chattingContentHead">
+						<!-- 內容標題頭貼及名字容器 -->
+						<div id="otherTopInfo">
+
+						</div>
+						<!-- 功能區 -->
+						<div></div>
+					</div>
+					<!-- 聊天內容區 -->
+					<div id="contentArea">
+						<div id="receivedMessages">
+							<p>點擊你的追蹤者開始聊天</p>
+						</div>
+					</div>
+					<!-- 發言區 -->
+					<div id="commentArea">
+						<!-- 訊息輸入框容器 -->
+						<div>
+							<!-- 訊息輸入框 -->
+							<input type="text" placeholder="訊息....." id="messageToSend">
+							<!-- 訊息送出鈕 -->
+							<button onclick="sendMessage()" id="sendMessageButton">發送</button>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+	<script src="./js/resize.js"></script>
+	<script src="./js/ChattingRoom.js"></script>
+	<script th:inline="javascript">
+		<!--		let userAccount=null;-->
+		let isDirected = [[${isDirected}]];
+		if (isDirected == true) {
+			console.log("followingUserID");
+			// 使用 setTimeout 確保元素已添加到 DOM
+			setTimeout(() => {
+				$(`#${followingUserID}`).click(); // 模擬點擊
+			}, 500); 
+
+			isDirected = false;
+		}else{
+			console.log("操作失敗");
+		}
+	</script>
+</body>
+
+
+</html>

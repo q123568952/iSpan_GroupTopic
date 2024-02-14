@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<link rel="icon" href="./img/logo.png">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+
+  <script src="https://rawgit.com/leizongmin/js-xss/master/dist/xss.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  </link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  </link>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+
+
+
+
+
+  <link rel="stylesheet" href="./css/styleTemplate.css">
+
+
+
+  <link rel="stylesheet" href="./css/newestInform.css">
+
+  <title>Website MainPage</title>
+
+
+
+</head>
+
+<body>
+
+  <div id="FixedLeft">
+    <!-- 這是左邊的BAR，刪掉你就沒有左邊的BAR了 -->
+  </div>
+
+  <div id="FixedRight">
+    <!-- 這是右邊的BAR，你可以把這個Div刪除得到額外的空間。 -->
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+
+
+
+      <div id="leftBar" class="col-2">
+        <!-- 這裡面的東西通常看不到 -->
+        <!-- FixedLeft 佔住的空間  -->
+      </div>
+
+      <!-- 設定行 -->
+      <div id="setting" class="col-2    border-end border-white border-1" style="display: none">
+        <!-- <div id="logo">
+                    <div style="border: 5px black solid; border-radius: 15px 15px 0px 15px; width: 50px;height: 50px;"></div>
+                </div> -->
+
+
+        <div class="leftIconText">
+          <h3>設定</h3>
+        </div>
+
+        <p class="fw-light fs-6">如何使用dropCat</p>
+
+
+
+        <div class="d-flex align-items-start">
+
+          <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+            <a href="" class="settingSelected " id="v-pills-profile-tab" data-bs-toggle="pill"
+              data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile">
+              <div class="leftIcon">
+                <i class="bi bi-person-circle"></i>
+              </div>
+              <div class="leftIconText">
+                編輯個人檔案
+              </div>
+            </a>
+
+            <a href="" class="settingSelected " id="v-pills-home-tab" data-bs-toggle="pill"
+              data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home">
+              <div class="leftIcon">
+                <i class="bi bi-bell"></i>
+              </div>
+              <div class="leftIconText">
+                通知
+              </div>
+            </a>
+
+          </div>
+
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+
+      <!-- 這裡是設定推播通知的那一行 -->
+      <div id="middleBar" class="col-5" style="background-color: #eef; display: none;">
+        <!-- 背景顏色 #eef 會呈現 #middleBar 目前的大小 -->
+        <div class="tab-content" id="v-pills-tabContent">
+
+          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+
+            <!-- <div class="my-3">
+                            推播通知
+                        </div> -->
+
+            <!-- <div class="form-check form-switch mb-3 mt-3">
+                            <input class="form-check-input" type="checkbox" id="allInformationSuspend" checked>
+                            <label class="form-check-label" for="allInformationSuspend">全部暫停</label>
+                        </div> -->
+
+            <div class="my-2">
+              <p class="fw-bold">按讚通知</p>
+
+              <div class="form-check my-2">
+                <input class="form-check-input" type="radio" name="likeInformState" id="openLikeInformState" checked>
+                <label class="form-check-label" for="openLikeInformState">
+                  開啟
+                </label>
+              </div>
+              <div class="form-check my-2">
+                <input class="form-check-input" type="radio" name="likeInformState" id="closeLikeInformState">
+                <label class="form-check-label" for="closeLikeInformState">
+                  關閉
+                </label>
+              </div>
+
+
+            </div>
+
+            <hr>
+
+            <div class="my-2">
+              <div class="fw-bold">貼文通知</div>
+
+              <div class="form-check my-2">
+                <input class="form-check-input" type="radio" name="postInformState" id="openPostInformState" checked>
+                <label class="form-check-label" for="openPostInformState">
+                  開啟
+                </label>
+              </div>
+              <div class="form-check my-2">
+                <input class="form-check-input" type="radio" name="postInformState" id="closePostInformState">
+                <label class="form-check-label" for="closePostInformState">
+                  關閉
+                </label>
+              </div>
+
+
+
+            </div>
+            <hr>
+
+            <div class="my-2">
+              <div class="fw-bold">追蹤通知</div>
+
+              <div class="form-check my-2">
+                <input class="form-check-input" type="radio" name="followInformState" id="openFollowInformState"
+                  checked>
+                <label class="form-check-label" for="openFollowInformState">
+                  開啟
+                </label>
+              </div>
+              <div class="form-check my-2">
+                <input class="form-check-input" type="radio" name="followInformState" id="closeFollowInformState">
+                <label class="form-check-label" for="closeFollowInformState">
+                  關閉
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            這裡是對應到編輯個人檔案的頁面
+            這裡的空間為col-5
+
+          </div>
+        </div>
+
+      </div>
+
+      <div id="rightBar" class="col-3">
+        <!-- 這裡面的東西通常看不到 -->
+        <!-- FixedRight 佔住的空間  -->
+        <!-- 這裡按不到，FixedRight才按得到  -->
+        <!-- 右邊的FIXED佔住的空間，如果把FixedRight刪除，這欄會被隱藏然後middleBar會變成col-10 -->
+      </div>
+
+
+
+
+    </div>
+  </div>
+  <div id="popOverBar">
+    <a href="#" class="leftSelectAble">
+      <div class="leftIcon">
+        <i class="bi bi-gear-fill"></i>
+      </div>
+      <div class="leftIconText">設定</div>
+    </a>
+  </div>
+
+  <!-- 這裡是跳出來的搜尋bar -->
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
+    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+      <div class="input-group mb-3">
+        <input id="search" type="text" class="form-control " placeholder="搜尋" aria-label="Username" aria-describedby="basic-addon1"
+          style="background-color: lightcyan;">
+        <button type="button" class="btn-close text-reset " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+    </div>
+    <hr>
+
+    <div id="zzzzzzzzzz">
+      <div class="card mb-3 ms-3 border-0" style="max-width: 500px; ">
+        <div class="row g-0">
+          <div class="col-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Spotted_Seal2.JPG"
+              class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-8" style="max-height: 100px;overflow:auto;">
+            <div class="card-body">
+              <h5 class="fw-bold">
+                KingJames
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card mb-3 ms-3 border-0" style="max-width: 500px; ">
+        <div class="row g-0">
+          <div class="col-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Spotted_Seal2.JPG"
+              class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-8" style="max-height: 100px;overflow:auto;">
+            <div class="card-body">
+              <h5 class="fw-bold">
+                Curry
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+
+    
+  </div>
+  <!-- </div> -->
+  <!-- 這裡是跳出來的通知 -->
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="inform"
+    aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+      <h3 class="offcanvas-title fw-bold">
+        通知
+      </h3>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <hr>
+    <div class="offcanvas-body ">
+      <div id="thisWeek">
+        <h5 class=" fw-bold ms-3" id="">
+          本週
+        </h5>
+        <div class="card mb-3 border-0" style="max-width: 500px; ">
+          <div class="row g-0">
+            <div class="col-4">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Spotted_Seal2.JPG"
+                class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-8" style="max-height: 100px;overflow:auto;">
+              <div class="card-body">
+                <p class="card-text">
+                  @LebronJames已加入
+                  KDKDKDKDKDKDKDKDK
+                </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3 border-0" style="max-width: 500px; ">
+          <div class="row g-0">
+            <div class="col-4">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Spotted_Seal2.JPG"
+                class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-8" style="max-height: 100px;overflow:auto;">
+              <div class="card-body">
+                <p class="card-text">
+                  @LebronJames已加入
+                  KDKDKDKDKDKDKDKDK
+                </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div id="thisMonth">
+        <h5 class=" fw-bold ms-3" id="">
+          本月
+        </h5>
+        <!-- <div class="card mb-3 border-0" style="max-width: 500px; ">
+                    <div class="row g-0">
+                      <div class="col-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Spotted_Seal2.JPG" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-8" style="max-height: 100px;overflow:auto;">
+                        <div class="card-body">
+                          <p class="card-text"  >
+                            @LebronJames已加入
+                            KDKDKDKDKDKDKDKDK
+                        </p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                </div> -->
+      </div>
+      <hr>
+      <div id="longTimeAgo">
+        <h5 class=" fw-bold ms-3" id="">
+          更早之前
+        </h5>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 有朋友發貼文的時候有通知
+    // 有朋友按追蹤的時候有通知
+    // 有朋友按讚的時候有通知
+    $(function () 
+    {
+      function userOusersettingInformObjectbject(openLikeInformState, openPostInformState, openFollowInformState) {
+        this.likeInformState = openLikeInformState;
+        this.postInformState = openPostInformState;
+        this.followInformState = openFollowInformState;
+      }
+      $(" #openLikeInformState, #openPostInformState,#openFollowInformState"
+      ).on("click", function () {
+        let openLikeInformState = 999;
+        if ($("#openLikeInformState").is(":checked")) {
+          openLikeInformState = 1;
+        }
+        else {
+          openLikeInformState = 0;
+        }
+        console.log("openLikeInformState為=====" + openLikeInformState);
+        let openPostInformState = 222;
+        if ($("#openPostInformState").is(":checked")) {
+          openPostInformState = 1;
+        }
+        else {
+          openPostInformState = 0;
+        }
+        console.log("openPostInformState為=====" + openPostInformState);
+        let openFollowInformState = 333;
+        if ($("#openFollowInformState").is(":checked")) {
+          openFollowInformState = 1;
+        }
+        else {
+          openFollowInformState = 0;
+        }
+        console.log("openFollowInformState為=====" + openFollowInformState);
+        console.log("--------------------------------------------");
+        let x = new userOusersettingInformObjectbject(openLikeInformState, openPostInformState
+          , openFollowInformState);
+        console.log("這是發送到後端的檔案:x====" + x);
+        console.log("--------------------------------------------");
+        $.ajax
+          ({
+            url: "http://localhost:8080/addSettingInformData",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(x),
+            dataType: "json",
+            success: function (resp) {
+              console.log("成功發送到後端-------------這是發送到後端的檔案:x====" + x);
+            },
+            error: function () {
+              // {alert("發送請求失敗")
+              console.log("發送請求失敗");
+            }
+          }
+          )
+      })
+      let thisWeekInformData = [
+        {
+          img: "https://img.ltn.com.tw/Upload/news/600/2020/06/05/phpkbOUtP.jpg",
+          userId: "Anthony Davis",
+          state: "對你的貼文按讚",
+          time: ""
+        },
+        {
+          img: "https://s.yimg.com/it/api/res/1.2/Dd8RpjXynLq_F._NFZgJ9A--~A/YXBwaWQ9eW5ld3M7dz00MDA7aD0yNjY7cT0xMDA-/https://s.yimg.com/xe/i/us/sp/v/nba_cutout/players_l/10242023/5007.png",
+          userId: "Anthony Davis",
+          state: "已加入",
+          time: ""
+        },
+        {
+          img: "https://s.yimg.com/it/api/res/1.2/KdQ0R8hRArnYbpnwUstRQA--~A/YXBwaWQ9eW5ld3M7dz00MDA7aD0yNjY7cT0xMDA-/https://s.yimg.com/xe/i/us/sp/v/nba_cutout/players_l/10242023/6170.png",
+          userId: "Jaxson Hayes",
+          state: "對你的貼文按讚",
+          time: ""
+        },
+      ]
+      let thisMonthInformData = [
+        {
+          img: "https://s.yimg.com/it/api/res/1.2/sTC.BXRio6vjZh5CXB25Jw--~A/YXBwaWQ9eW5ld3M7dz00MDA7aD0yNjY7cT0xMDA-/https://s.yimg.com/xe/i/us/sp/v/nba_cutout/players_l/10242023/3704.png",
+          userId: "LeBron James",
+          state: "對你的貼文按讚",
+          time: ""
+        },
+      ]
+      let longTimeAgoInformData = [
+        {
+          img: "https://s.yimg.com/it/api/res/1.2/4R9PKQswDuq6RRGFhiidUA--~A/YXBwaWQ9eW5ld3M7dz00MDA7aD0yNjY7cT0xMDA-/https://s.yimg.com/xe/i/us/sp/v/nba_cutout/players_l/10242023/6606.png",
+          userId: "Austin Reaves",
+          state: "對你的貼文按讚",
+          time: ""
+        },
+      ]
+      thisWeekInformData.map((x) => {
+        $("#thisWeek").append(
+          `<div class="card mb-3 border-0" style="max-width: 500px; ">
+                    <div class="row g-0">
+                      <div class="col-4">
+                        <img src="
+                        ${x.img}" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-8" style="max-height: 100px;overflow:auto;">
+                        <div class="card-body">
+                          <p class="card-text"  >
+                            ${x.userId}${x.state}
+                          </p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                </div>`
+        )
+      })
+      thisMonthInformData.map((x) => {
+        $("#thisMonth").append(
+          `<div class="card mb-3 border-0" style="max-width: 500px; ">
+                    <div class="row g-0">
+                      <div class="col-4">
+                        <img src="
+                        ${x.img}" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-8" style="max-height: 100px;overflow:auto;">
+                        <div class="card-body">
+                          <p class="card-text"  >
+                            ${x.userId}${x.state}
+                          </p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                </div>`
+        )
+      })
+      longTimeAgoInformData.map((x) => {
+        $("#longTimeAgo").append(
+          `<div class="card mb-3 border-0" style="max-width: 500px; ">
+                    <div class="row g-0">
+                      <div class="col-4">
+                        <img src="
+                        ${x.img}" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-8" style="max-height: 100px;overflow:auto;">
+                        <div class="card-body">
+                          <p class="card-text"  >
+                            ${x.userId}${x.state}
+                          </p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                </div>`
+        )
+      })
+
+
+
+
+
+
+
+
+
+
+      let userAccount=$("#search").val();
+      console.log(userAccount);
+
+      function userObject(userAccount)
+      {
+          this.userAccount=userAccount;
+          
+          
+      }
+
+
+      $("#search").blur(function()
+      {
+        console.log("-----------------------");
+        let x=new userObject(userAccount);
+        
+
+            $.ajax
+                ({
+                    url:"http://localhost:8080/findUserInSearchController",
+                    type:"POST",
+                    contentType:"application/json",
+                    data: JSON.stringify(x),
+                    dataType:"json",
+                    success:function(resp)
+                    {
+                        console.log("------------------這裡是JS-----------------------------");
+                        console.log("resp的資料型態:" + typeof resp);
+                        console.log("resp.data的資料型態:" + typeof resp.data);
+
+
+
+                        console.log("resp是:" + resp);
+                        console.log("resp.data是:" + resp.data);
+
+                        console.log("JSON.stringify(resp)是:" + JSON.stringify(resp));
+                        console.log("JSON.stringify(resp.data)是:" + JSON.stringify(resp.data));
+
+
+
+
+
+
+
+
+
+
+
+                        resp.data.map((x) => 
+                        {
+                            $("#zzzzzzzzzz").append(
+                              `<hr>
+                            <div class="card mb-3 ms-3 border-0" style="max-width: 500px; ">
+                              <div class="row g-0">
+                                <div class="col-4">
+                                  <img src="https://img.ltn.com.tw/Upload/news/600/2020/06/05/phpkbOUtP.jpg"
+                                    class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-8" style="max-height: 100px;overflow:auto;">
+                                  <div class="card-body">
+                                    <h5 class="fw-bold">
+                                      ${x.userAccount}
+                                    </h5>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <br>`
+                            )
+
+
+
+
+
+                        })
+
+
+
+
+
+
+
+
+
+                    }
+                })
+
+
+
+
+
+
+
+
+
+
+      });
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+    })
+  </script>
+  <!-- <script src="./inform.js"></script> -->
+  <script src="./js/newestInformResize.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+<link rel="icon" href="./img/logo.png">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+	<title>DropCat</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.total {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.title img {
+			width: 50px;
+			height: 50px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="total container-fluid d-flex flex-column">
+		<div class="row">
+			<div class="title d-flex flex-column align-items-center">
+				<img src="./img/logo.png">
+				<h2>DropCat</h2>
+			</div>
+
+			<form id="resetForm" class="title d-flex flex-column align-items-center">
+				<!-- <p>請輸入電子郵件：</p> -->
+				<label class="form-label">請輸入電子郵件：<input type="email" id="email"></label><br>
+				<button type="submit" class="btn btn-dark">送出</button>
+			</form>
+		</div>
+	</div>
+
+
+	<script>
+
+		var inputEmail = document.getElementById("resetForm");
+
+		inputEmail.addEventListener('submit', function (event) {
+			event.preventDefault();
+
+			// 獲取用戶輸入的電子郵件
+			var email = document.getElementById("email").value;
+
+			var emailRegexp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+			if (!emailRegexp.test(email)) {
+				alert("請輸入有效的電子郵件地址！");
+				return;
+			}
+
+			// console.log(email);
+
+			$.ajax({
+				type: "POST",
+				url: "/resetpassword?email=" + encodeURIComponent(email),
+				success: function (data) {
+
+					// 處理後端返回的數據
+					if (data.res === "success") {
+						alert(data.message);
+						document.getElementById("email").value = "";
+					} else {
+						alert(data.errormessage);
+					}
+				},
+				error: function (error) {
+
+					if (error.status === 404) {
+						alert(error.responseJSON.notfoundmessage);
+					}
+					document.getElementById("email").value = "";
+				}
+			});
+		});
+
+		document.addEventListener('DOMContentLoaded', function () {
+			
+			var urlParams = new URLSearchParams(window.location.search);
+			var error = urlParams.get('error');
+
+			if (error === 'invalid') {
+				alert('token無效或已過期');
+			}
+		});
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.7.1.js"
+		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
+
+
+
+
+
+</body>
+
+</html>

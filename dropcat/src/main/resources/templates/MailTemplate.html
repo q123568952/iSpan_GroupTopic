@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+<link rel="icon" href="./img/logo.png">
+    <title>Insert title here</title>
+</head>
+
+<body>
+	<!--這裡是重設密碼驗證信的模板，不用改樣式-->
+
+    <h2>密碼重新驗證</h2><br>
+    <span>我們收到您的重設密碼要求。</span><br><br>
+    <span>如果您有申請密碼重設，請點擊以下連結完成驗證。</span><br><br>
+    <a th:href="${resetLink}">點此重置您的密碼</a><br><br>
+    <span>或者，您可以複製以下重置密碼網址：</span><br><br>
+    <span th:text="${resetLink}"></span>
+    <br>
+    <br>
+    <br>
+    <span>有任何疑問請聯絡客服。</span>
+</body>
+
+</html>
